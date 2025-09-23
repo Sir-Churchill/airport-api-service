@@ -2,6 +2,8 @@ from datetime import datetime
 
 from django.db.models import F, Value, Count
 from django.db.models.functions import Concat
+from drf_spectacular.types import OpenApiTypes
+from drf_spectacular.utils import extend_schema, OpenApiParameter
 from rest_framework import viewsets, mixins, status
 from rest_framework.decorators import action
 from rest_framework.pagination import PageNumberPagination
@@ -15,7 +17,11 @@ from airport.serializers import AirportSerializer, RouteSerializer, AirplaneSeri
     AirplaneImageSerializer
 
 
-class AirportViewSet(viewsets.ModelViewSet):  #Dont need list
+class AirportViewSet(
+    mixins.ListModelMixin,
+    mixins.CreateModelMixin,
+    viewsets.GenericViewSet,
+):
     queryset = Airport.objects.all()
     serializer_class = AirportSerializer
 
@@ -32,6 +38,22 @@ class AirportViewSet(viewsets.ModelViewSet):  #Dont need list
 
         return queryset.distinct()
 
+    @extend_schema(
+        parameters=[
+            OpenApiParameter(
+                name="name",
+                type=OpenApiTypes.STR,
+                description="Name of the airport",
+            ),
+            OpenApiParameter(
+                name="city",
+                type=OpenApiTypes.STR,
+                description="City of the airport",
+            )
+        ]
+    )
+    def list(self, request, *args, **kwargs):
+        return super().list(request, *args, **kwargs)
 
 class RouteViewSet(viewsets.ModelViewSet):
     queryset = Route.objects.all().select_related('source', 'destination')
@@ -40,8 +62,9 @@ class RouteViewSet(viewsets.ModelViewSet):
     def get_serializer_class(self):
         if self.action == "list":
             return RouteListSerializer
-        return RouteDetailSerializer
-
+        elif self.action == "retrieve":
+            return RouteDetailSerializer
+        return RouteSerializer
 
 
     def get_queryset(self):
@@ -71,10 +94,9 @@ class AirplaneViewSet(viewsets.ModelViewSet):
             return AirplaneListSerializer
         if self.action == "retrieve":
             return AirplaneDetailSerializer
-        if self.action == "upload-image":
+        if self.action == "upload_image":
             return AirplaneImageSerializer
         return AirplaneSerializer
-
 
     def get_queryset(self):
         name = self.request.query_params.get("name")
@@ -99,8 +121,24 @@ class AirplaneViewSet(viewsets.ModelViewSet):
         serializer.save()
         return Response(serializer.data, status=status.HTTP_200_OK)
 
+    @extend_schema(
+        parameters=[
+            OpenApiParameter(
+                name="name",
+                type=OpenApiTypes.STR,
+                description="Name of the airplane",
+            )
+        ]
+    )
+    def list(self, request, *args, **kwargs):
+        return super().list(request, *args, **kwargs)
 
-class AirplaneTypeViewSet(viewsets.ModelViewSet):  #Dont need list
+
+class AirplaneTypeViewSet(
+    mixins.ListModelMixin,
+    mixins.CreateModelMixin,
+    viewsets.GenericViewSet,
+):
     queryset = AirplaneType.objects.all()
     serializer_class = AirplaneTypeSerializer
 
@@ -127,7 +165,9 @@ class FlightViewSet(viewsets.ModelViewSet):
     def get_serializer_class(self):
         if self.action == "list":
             return FlightListSerializer
-        return FlightDetailSerializer
+        if self.action == "retrieve":
+            return FlightDetailSerializer
+        return FlightSerializer
 
     @staticmethod
     def _params_to_ints(queryset):
@@ -148,6 +188,23 @@ class FlightViewSet(viewsets.ModelViewSet):
             queryset = queryset.filter(crews__id__in=crews_ids)
 
         return queryset.distinct()
+
+    @extend_schema(
+        parameters=[
+            OpenApiParameter(
+                name="date",
+                type=OpenApiTypes.STR,
+                description="Date of the departure flight",
+            ),
+            OpenApiParameter(
+                name="crews",
+                type={"type":"list", "items": {"type": "number"}},
+                description="List of departure flight crews id (ex. ?crews=1,2)",
+            )
+        ]
+    )
+    def list(self, request, *args, **kwargs):
+        return super().list(request, *args, **kwargs)
 
 class OrderViewSet(
     viewsets.GenericViewSet,
