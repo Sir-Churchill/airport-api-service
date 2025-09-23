@@ -21,7 +21,7 @@ class Route(models.Model):
     distance = models.IntegerField()
 
     def __str__(self):
-        return f"{self.source.name} -> {self.destination.name}"
+        return f"Source: {self.source_id} -> Destination: {self.destination_id} ({self.distance} km)"
 
     class Meta:
         ordering = ("distance",)
@@ -43,7 +43,7 @@ class Airplane(models.Model):
     rows = models.IntegerField()
     seats_in_row = models.IntegerField()
     airplane_type = models.ForeignKey(AirplaneType, on_delete=models.CASCADE, related_name="airplane_types")
-    image = models.ImageField(upload_to=airplane_image_file_path, null=True)
+    image = models.ImageField(null=True, blank=True, upload_to=airplane_image_file_path)
 
     def __str__(self):
         return self.name
