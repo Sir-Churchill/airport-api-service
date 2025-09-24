@@ -123,7 +123,7 @@ class Ticket(models.Model):
         self.full_clean()
 
         return super(Ticket, self).save(
-            **args, **kwargs
+            *args, **kwargs
         )
 
 
