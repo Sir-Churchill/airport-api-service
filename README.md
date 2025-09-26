@@ -55,8 +55,9 @@ The project is fully containerized using **Docker** for easy deployment.
 ### 1. Clone the repository
 ```bash
 git clone https://github.com/Sir-Churchill/airport-api-service.git
+(create venv if needed)
+source .venv/bin/activate
 pip install requirements.txt
-cd airport-api
 ```
 ---
 ## 🐳 Docker Setup
