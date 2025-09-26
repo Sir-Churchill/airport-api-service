@@ -1,0 +1,525 @@
+[
+    {
+        "model": "airport.airport",
+        "pk": 1,
+        "fields": {
+            "name": "JFK International Airport",
+            "closest_big_city": "New York"
+        }
+    },
+    {
+        "model": "airport.airport",
+        "pk": 2,
+        "fields": {
+            "name": "Los Angeles International Airport",
+            "closest_big_city": "Los Angeles"
+        }
+    },
+    {
+        "model": "airport.airport",
+        "pk": 3,
+        "fields": {
+            "name": "O'Hare International Airport",
+            "closest_big_city": "Chicago"
+        }
+    },
+    {
+        "model": "airport.airport",
+        "pk": 4,
+        "fields": {
+            "name": "Heathrow Airport",
+            "closest_big_city": "London"
+        }
+    },
+    {
+        "model": "airport.airport",
+        "pk": 5,
+        "fields": {
+            "name": "Haneda Airport",
+            "closest_big_city": "Tokyo"
+        }
+    },
+    {
+        "model": "airport.airport",
+        "pk": 6,
+        "fields": {
+            "name": "Dubai International Airport",
+            "closest_big_city": "Dubai"
+        }
+    },
+    {
+        "model": "airport.airport",
+        "pk": 7,
+        "fields": {
+            "name": "Charles de Gaulle Airport",
+            "closest_big_city": "Paris"
+        }
+    },
+    {
+        "model": "airport.airport",
+        "pk": 8,
+        "fields": {
+            "name": "Frankfurt Airport",
+            "closest_big_city": "Frankfurt"
+        }
+    },
+    {
+        "model": "airport.route",
+        "pk": 1,
+        "fields": {
+            "source": 1,
+            "destination": 5,
+            "distance": 2893
+        }
+    },
+    {
+        "model": "airport.route",
+        "pk": 2,
+        "fields": {
+            "source": 2,
+            "destination": 7,
+            "distance": 3630
+        }
+    },
+    {
+        "model": "airport.route",
+        "pk": 3,
+        "fields": {
+            "source": 3,
+            "destination": 7,
+            "distance": 816
+        }
+    },
+    {
+        "model": "airport.route",
+        "pk": 4,
+        "fields": {
+            "source": 6,
+            "destination": 7,
+            "distance": 6521
+        }
+    },
+    {
+        "model": "airport.route",
+        "pk": 5,
+        "fields": {
+            "source": 6,
+            "destination": 8,
+            "distance": 4641
+        }
+    },
+    {
+        "model": "airport.route",
+        "pk": 6,
+        "fields": {
+            "source": 7,
+            "destination": 8,
+            "distance": 5667
+        }
+    },
+    {
+        "model": "airport.airplanetype",
+        "pk": 1,
+        "fields": {
+            "name": "Boeing 737"
+        }
+    },
+    {
+        "model": "airport.airplanetype",
+        "pk": 2,
+        "fields": {
+            "name": "Airbus A320"
+        }
+    },
+    {
+        "model": "airport.airplanetype",
+        "pk": 3,
+        "fields": {
+            "name": "Boeing 777"
+        }
+    },
+    {
+        "model": "airport.airplanetype",
+        "pk": 4,
+        "fields": {
+            "name": "Airbus A380"
+        }
+    },
+    {
+        "model": "airport.airplanetype",
+        "pk": 5,
+        "fields": {
+            "name": "Embraer 190"
+        }
+    },
+    {
+        "model": "airport.airplane",
+        "pk": 1,
+        "fields": {
+            "name": "SkyBird",
+            "rows": 37,
+            "seats_in_row": 9,
+            "airplane_type": 1
+        }
+    },
+    {
+        "model": "airport.airplane",
+        "pk": 2,
+        "fields": {
+            "name": "CloudRunner",
+            "rows": 47,
+            "seats_in_row": 4,
+            "airplane_type": 2
+        }
+    },
+    {
+        "model": "airport.airplane",
+        "pk": 3,
+        "fields": {
+            "name": "JetStream",
+            "rows": 52,
+            "seats_in_row": 5,
+            "airplane_type": 5
+        }
+    },
+    {
+        "model": "airport.airplane",
+        "pk": 4,
+        "fields": {
+            "name": "AeroStar",
+            "rows": 30,
+            "seats_in_row": 6,
+            "airplane_type": 3
+        }
+    },
+    {
+        "model": "airport.airplane",
+        "pk": 5,
+        "fields": {
+            "name": "FlightEagle",
+            "rows": 50,
+            "seats_in_row": 5,
+            "airplane_type": 2
+        }
+    },
+    {
+        "model": "airport.crew",
+        "pk": 1,
+        "fields": {
+            "first_name": "David",
+            "last_name": "Davis"
+        }
+    },
+    {
+        "model": "airport.crew",
+        "pk": 2,
+        "fields": {
+            "first_name": "Michael",
+            "last_name": "Miller"
+        }
+    },
+    {
+        "model": "airport.crew",
+        "pk": 3,
+        "fields": {
+            "first_name": "Sophia",
+            "last_name": "Johnson"
+        }
+    },
+    {
+        "model": "airport.crew",
+        "pk": 4,
+        "fields": {
+            "first_name": "Sophia",
+            "last_name": "Williams"
+        }
+    },
+    {
+        "model": "airport.crew",
+        "pk": 5,
+        "fields": {
+            "first_name": "Anna",
+            "last_name": "Williams"
+        }
+    },
+    {
+        "model": "airport.crew",
+        "pk": 6,
+        "fields": {
+            "first_name": "Michael",
+            "last_name": "Brown"
+        }
+    },
+    {
+        "model": "airport.crew",
+        "pk": 7,
+        "fields": {
+            "first_name": "Sophia",
+            "last_name": "Brown"
+        }
+    },
+    {
+        "model": "airport.crew",
+        "pk": 8,
+        "fields": {
+            "first_name": "James",
+            "last_name": "Brown"
+        }
+    },
+    {
+        "model": "airport.crew",
+        "pk": 9,
+        "fields": {
+            "first_name": "David",
+            "last_name": "Miller"
+        }
+    },
+    {
+        "model": "airport.crew",
+        "pk": 10,
+        "fields": {
+            "first_name": "Anna",
+            "last_name": "Johnson"
+        }
+    },
+    {
+        "model": "airport.crew",
+        "pk": 11,
+        "fields": {
+            "first_name": "Sophia",
+            "last_name": "Brown"
+        }
+    },
+    {
+        "model": "airport.crew",
+        "pk": 12,
+        "fields": {
+            "first_name": "Michael",
+            "last_name": "Johnson"
+        }
+    },
+    {
+        "model": "airport.crew",
+        "pk": 13,
+        "fields": {
+            "first_name": "John",
+            "last_name": "Jones"
+        }
+    },
+    {
+        "model": "airport.crew",
+        "pk": 14,
+        "fields": {
+            "first_name": "David",
+            "last_name": "Williams"
+        }
+    },
+    {
+        "model": "airport.crew",
+        "pk": 15,
+        "fields": {
+            "first_name": "Michael",
+            "last_name": "Jones"
+        }
+    },
+    {
+        "model": "airport.crew",
+        "pk": 16,
+        "fields": {
+            "first_name": "James",
+            "last_name": "Williams"
+        }
+    },
+    {
+        "model": "airport.crew",
+        "pk": 17,
+        "fields": {
+            "first_name": "Anna",
+            "last_name": "Garcia"
+        }
+    },
+    {
+        "model": "airport.crew",
+        "pk": 18,
+        "fields": {
+            "first_name": "James",
+            "last_name": "Jones"
+        }
+    },
+    {
+        "model": "airport.crew",
+        "pk": 19,
+        "fields": {
+            "first_name": "John",
+            "last_name": "Smith"
+        }
+    },
+    {
+        "model": "airport.crew",
+        "pk": 20,
+        "fields": {
+            "first_name": "Anna",
+            "last_name": "Johnson"
+        }
+    },
+    {
+        "model": "airport.flight",
+        "pk": 1,
+        "fields": {
+            "route": 5,
+            "airplane": 4,
+            "departure_time": "2025-09-21T20:33:05.256120",
+            "arrival_time": "2025-09-22T08:33:05.256120",
+            "crews": [
+                5,
+                8,
+                9,
+                7,
+                15
+            ]
+        }
+    },
+    {
+        "model": "airport.flight",
+        "pk": 2,
+        "fields": {
+            "route": 3,
+            "airplane": 2,
+            "departure_time": "2025-10-15T20:33:05.256175",
+            "arrival_time": "2025-10-16T10:33:05.256175",
+            "crews": [
+                11,
+                2
+            ]
+        }
+    },
+    {
+        "model": "airport.flight",
+        "pk": 3,
+        "fields": {
+            "route": 1,
+            "airplane": 2,
+            "departure_time": "2025-10-16T20:33:05.256197",
+            "arrival_time": "2025-10-17T09:33:05.256197",
+            "crews": [
+                7,
+                1,
+                8,
+                12,
+                6
+            ]
+        }
+    },
+    {
+        "model": "airport.flight",
+        "pk": 4,
+        "fields": {
+            "route": 2,
+            "airplane": 1,
+            "departure_time": "2025-09-26T20:33:05.256216",
+            "arrival_time": "2025-09-26T23:33:05.256216",
+            "crews": [
+                8,
+                16,
+                19,
+                17
+            ]
+        }
+    },
+    {
+        "model": "airport.flight",
+        "pk": 5,
+        "fields": {
+            "route": 2,
+            "airplane": 4,
+            "departure_time": "2025-10-14T20:33:05.256229",
+            "arrival_time": "2025-10-15T01:33:05.256229",
+            "crews": [
+                18,
+                15,
+                8,
+                19,
+                14
+            ]
+        }
+    },
+    {
+        "model": "airport.flight",
+        "pk": 6,
+        "fields": {
+            "route": 5,
+            "airplane": 2,
+            "departure_time": "2025-10-09T20:33:05.256243",
+            "arrival_time": "2025-10-10T00:33:05.256243",
+            "crews": [
+                20,
+                15,
+                11,
+                17,
+                1
+            ]
+        }
+    },
+    {
+        "model": "airport.flight",
+        "pk": 7,
+        "fields": {
+            "route": 6,
+            "airplane": 4,
+            "departure_time": "2025-10-09T20:33:05.256256",
+            "arrival_time": "2025-10-10T00:33:05.256256",
+            "crews": [
+                2,
+                8,
+                11
+            ]
+        }
+    },
+    {
+        "model": "airport.flight",
+        "pk": 8,
+        "fields": {
+            "route": 6,
+            "airplane": 1,
+            "departure_time": "2025-10-11T20:33:05.256269",
+            "arrival_time": "2025-10-12T07:33:05.256269",
+            "crews": [
+                14,
+                15,
+                16,
+                17,
+                10
+            ]
+        }
+    },
+    {
+        "model": "airport.flight",
+        "pk": 9,
+        "fields": {
+            "route": 2,
+            "airplane": 1,
+            "departure_time": "2025-09-30T20:33:05.256285",
+            "arrival_time": "2025-10-01T08:33:05.256285",
+            "crews": [
+                16,
+                3,
+                12
+            ]
+        }
+    },
+    {
+        "model": "airport.flight",
+        "pk": 10,
+        "fields": {
+            "route": 6,
+            "airplane": 5,
+            "departure_time": "2025-10-11T20:33:05.256298",
+            "arrival_time": "2025-10-12T05:33:05.256298",
+            "crews": [
+                1,
+                3,
+                2
+            ]
+        }
+    }
+]
